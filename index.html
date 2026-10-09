@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101820" />
+    <title>Sliding Image Puzzle</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="game.js" defer></script>
+  </head>
+  <body>
+    <main class="app">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">A little focus, one move at a time</p>
+          <h1>Sliding Puzzle</h1>
+        </div>
+        <button class="button button-primary" id="new-game" type="button">New game</button>
+      </header>
+
+      <section class="game-layout" aria-label="Sliding image puzzle game">
+        <section class="game-card" aria-label="Puzzle">
+          <div class="game-toolbar">
+            <label class="difficulty-control" for="difficulty">
+              <span>Grid size</span>
+              <select id="difficulty">
+                <option value="3" selected>3 × 3 · Easy</option>
+                <option value="4">4 × 4 · Medium</option>
+                <option value="5">5 × 5 · Hard</option>
+              </select>
+            </label>
+            <div class="stat">
+              <span class="stat-label">Moves</span>
+              <output id="move-count" aria-live="polite">0</output>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Time</span>
+              <output id="elapsed-time">00:00</output>
+            </div>
+          </div>
+
+          <div
+            class="puzzle-board"
+            id="puzzle-board"
+            role="group"
+            aria-label="Sliding puzzle board"
+          ></div>
+
+          <div class="game-footer">
+            <p class="game-message" id="game-message" role="status" aria-live="polite">
+              Slide a tile next to the empty space. Rebuild the picture to win.
+            </p>
+            <div class="footer-actions">
+              <button class="button button-secondary" id="restart" type="button">Restart</button>
+              <button class="button button-primary" id="play-again" type="button" hidden>
+                Play again
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <aside class="side-card">
+          <div>
+            <p class="eyebrow">Your reference</p>
+            <h2>Picture to solve</h2>
+          </div>
+          <img
+            class="reference-image"
+            id="reference-image"
+            src="assets/puzzle-image.jpg"
+            alt="The completed landscape image for the puzzle"
+          />
+          <div class="instructions">
+            <h3>How to play</h3>
+            <p>Tap, click, or focus a tile and press Enter or Space to move it into the gap.</p>
+            <p>Only tiles directly beside the empty space can move. Put every piece back in order.</p>
+          </div>
+        </aside>
+      </section>
+      <p class="image-credit">Puzzle image: Unsplash</p>
+    </main>
+  </body>
+</html>
